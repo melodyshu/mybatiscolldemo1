@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -29,6 +30,12 @@ public class App
         idsList.add(2);
         List<OrderDetail> orderDetailList2 = orderdetailMapper.findOrderDetailByIds(idsList);
         System.out.println(orderDetailList2);
+        System.out.println("=======================");
+        Query query=new Query();
+        query.setName("huang");
+        query.setIdList(idsList);
+        List<OrderDetail> orderDetailList3 = orderdetailMapper.findOrderDetailByQuery(query);
+        System.out.println(orderDetailList3);
         sqlSession.close();
     }
 }

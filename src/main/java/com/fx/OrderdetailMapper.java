@@ -5,4 +5,5 @@ import java.util.List;
 public interface OrderdetailMapper {
     public List<OrderDetail> findOrderDetail();
     public List<OrderDetail> findOrderDetailByIds(List<Integer> ids);
+    public List<OrderDetail> findOrderDetailByQuery(Query query);
 }

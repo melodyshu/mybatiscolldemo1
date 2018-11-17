@@ -34,6 +34,15 @@
             AND t3.orders_id = t1.id
     </select>
 
+    <sql id="LIST_CONDITION">
+        <if test="b2bOrderId!= 0">
+            AND id in
+            <foreach collection="list" item="b2bOrderId" open="(" close=")" separator=",">
+                #{b2bOrderId}
+            </foreach>
+        </if>
+    </sql>
+
     <select id="findOrderDetailByIds" resultMap="ordersAndOrderDetailResultMap">
           SELECT
                 t1.*, t2.username,
@@ -53,6 +62,28 @@
         and t1.id IN
         <foreach collection="list" item="id" open="(" close=")" separator=",">
             #{id}
+        </foreach>
+    </select>
+
+    <select id="findOrderDetailByQuery" resultMap="ordersAndOrderDetailResultMap">
+        SELECT
+        t1.*, t2.username,
+        t2.gender,
+        t2.address,
+        t3.id orderdetail_id,
+        t3.items_id,
+        t3.items_num,
+        t3.orders_id
+        FROM
+        orders t1,
+        t_user2 t2,
+        orderdetail t3
+        WHERE
+        t1.user_id = t2.id
+        AND t3.orders_id = t1.id
+        and t1.id IN
+        <foreach collection="idList" item="idx" open="(" close=")" separator=",">
+            #{idx}
         </foreach>
     </select>
 </mapper>
