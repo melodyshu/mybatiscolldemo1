@@ -1,41 +1,41 @@
 package com.fx;
 
 public class OrderDetail {
-    private int id;
-    private int orderId;
-    private int itermId;
-    private int itemNum;
+    private Integer id;
+    private Integer orderId;
+    private Integer itermId;
+    private Integer itemNum;
     private Item item;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
-    public int getItermId() {
+    public Integer getItermId() {
         return itermId;
     }
 
-    public void setItermId(int itermId) {
+    public void setItermId(Integer itermId) {
         this.itermId = itermId;
     }
 
-    public int getItemNum() {
+    public Integer getItemNum() {
         return itemNum;
     }
 
-    public void setItemNum(int itemNum) {
+    public void setItemNum(Integer itemNum) {
         this.itemNum = itemNum;
     }
 

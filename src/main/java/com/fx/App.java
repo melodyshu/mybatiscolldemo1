@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,12 @@ public class App
         OrderdetailMapper orderdetailMapper= sqlSession.getMapper(OrderdetailMapper.class);
         List<OrderDetail> orderDetailList = orderdetailMapper.findOrderDetail();
         System.out.println(orderDetailList);
+        System.out.println("=======================");
+        List<Integer> idsList=new ArrayList<Integer>();
+        idsList.add(1);
+        idsList.add(2);
+        List<OrderDetail> orderDetailList2 = orderdetailMapper.findOrderDetailByIds(idsList);
+        System.out.println(orderDetailList2);
         sqlSession.close();
     }
 }
